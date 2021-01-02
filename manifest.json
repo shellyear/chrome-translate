@@ -1,0 +1,34 @@
+{
+  "name": "NY Kick ext",
+  "version": "1.0",
+  "description": "Build an Extension!",
+  "permissions":  ["activeTab", "declarativeContent", "storage"],
+  "options_page": "options.html",
+  "icons": {
+    "16": "translate_16.png",
+    "32": "translate_32.png",
+    "48": "translate_48.png",
+    "128": "translate_128.png"
+  },
+  "browser_action": {
+    "default_popup": "popup.html",
+    "default_icon": "translate_32.png"
+  },
+  "commands": {
+    "_execute_browser_action": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+F",
+        "mac": "MacCtrl+Shift+F"
+      },
+      "description": "Opens hello.html"
+    }
+  },
+  "content_scripts": [
+    {
+      "matches": ["http://*/*", "https://*/*"],
+      "run_at": "document_idle",
+      "js": ["inject.js"]
+    }
+  ],
+  "manifest_version": 2
+}
