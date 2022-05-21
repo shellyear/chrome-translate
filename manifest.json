@@ -1,34 +1,26 @@
 {
-  "name": "NY Kick ext",
+  "name": "Button for translating text on the page",
+  "description": "Button for translating text on the page!",
   "version": "1.0",
-  "description": "Build an Extension!",
-  "permissions":  ["activeTab", "declarativeContent", "storage"],
-  "options_page": "options.html",
-  "icons": {
-    "16": "translate_16.png",
-    "32": "translate_32.png",
-    "48": "translate_48.png",
-    "128": "translate_128.png"
+  "manifest_version": 3,
+  "background": {
+    "service_worker": "background.js"
   },
-  "browser_action": {
+  "permissions": ["storage", "activeTab", "scripting"],
+  "action": {
     "default_popup": "popup.html",
-    "default_icon": "translate_32.png"
-  },
-  "commands": {
-    "_execute_browser_action": {
-      "suggested_key": {
-        "default": "Ctrl+Shift+F",
-        "mac": "MacCtrl+Shift+F"
-      },
-      "description": "Opens hello.html"
+    "default_icon": {
+      "16": "/images/get_started16.png",
+      "32": "/images/get_started32.png",
+      "48": "/images/get_started48.png",
+      "128": "/images/get_started128.png"
     }
   },
-  "content_scripts": [
-    {
-      "matches": ["http://*/*", "https://*/*"],
-      "run_at": "document_idle",
-      "js": ["inject.js"]
-    }
-  ],
-  "manifest_version": 2
+  "icons": {
+    "16": "/images/get_started16.png",
+    "32": "/images/get_started32.png",
+    "48": "/images/get_started48.png",
+    "128": "/images/get_started128.png"
+  },
+  "options_page": "options.html"
 }
